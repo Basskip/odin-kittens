@@ -21,6 +21,7 @@ class KittensController < ApplicationController
         if @kitten.save
             redirect_to @kitten
         else
+            flash.now[:error] = @kitten.errors.full_messages
             render 'new'
         end
     end
